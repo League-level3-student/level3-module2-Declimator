@@ -2,6 +2,8 @@ package _00_Sorting_Algorithms;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.lang.reflect.Array;
+
 import org.junit.jupiter.api.Test;
 
 class _01_SwappingDigits {
@@ -24,20 +26,35 @@ class _01_SwappingDigits {
 	
 	//1. Complete the method so that the first two elements of the array are swapped
 	public static void swapArrayOfTwo(int[] arr) {
-		
+	int x = arr[0];	
+	arr[0] = arr[1];
+	arr[1] = x;
 	}
 	
 	//2. Complete the method so that it sorts the array using a bubble sort.
 	//   Iterate through the array and when you find two elements that are out
 	//   of order, swap them. Repeat this until the array is in order.
 	public static void sortIntArray(int[] arr) {
-		
+		for(int i = arr.length-1; i > 1; i--) {
+			if(arr[i] < arr[i-1]) {
+				int x = arr[i];	
+				arr[i] = arr[i-1];
+				arr[i-1] = x;	
+			}
+		}
+		for(int i = 0; i < arr.length; i++) {
+			System.out.println(arr[i]);
+		}
 	}
 	
 	//3. Complete the method so that it finds the middle number in the array.
 	//   *Hint* it helps to sort it first.
 	//   *Double Hint* Use the method you already wrote in step 2 to sort it
 	public static int findMiddle(int[] arr) {
-		return 0;
+		System.out.println("test");
+		sortIntArray(arr);
+		int x = arr[arr.length/2];
+		System.out.println(x);
+		return x;
 	}
 }
