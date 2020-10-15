@@ -35,11 +35,15 @@ class _01_SwappingDigits {
 	//   Iterate through the array and when you find two elements that are out
 	//   of order, swap them. Repeat this until the array is in order.
 	public static void sortIntArray(int[] arr) {
-		for(int i = arr.length-1; i > 0; i--) {
-			if(arr[i] < arr[i-1]) {
-				int x = arr[i];	
-				arr[i] = arr[i-1];
-				arr[i-1] = x;	
+		for(int i = 0; i < arr.length; i++) {
+			for(int j = 0; j < arr.length; j++) {
+				if(j == i) {
+					
+				} else if (arr[i] < arr[j]){
+					int x = arr[i];
+					arr[i] = arr[j];
+					arr[j] = x;
+				}
 			}
 		}
 		for(int i = 0; i < arr.length; i++) {
