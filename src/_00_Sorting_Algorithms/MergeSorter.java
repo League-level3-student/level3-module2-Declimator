@@ -22,31 +22,34 @@ public class MergeSorter extends Sorter {
 		//2. make an if statement that checks if low is less than high
 		//   and put the rest of the method inside of it
 		if(low < high) {
-			int middle = array[low + (high-low)/2];
+			int middle = low + (high-low)/2;
 			mergeSort(array, low, middle, display);
 			mergeSort(array, middle+1, high, display);
-			for(int i = low; i < high; i++) {
+			for(int i = low; i <= high; i++) {
 				array2[i] = array[i];
 			}
+			String s = "test";                   
 			int i = low;
 			int j = middle+1;
 			int k = low;
 			while(i <= middle && j <= high) {
 				if(array2[i] <= array2[j]) {
 					array[k] = array2[i];
+					display.updateDisplay();
 					i++;
 				} else {
 					array[k] = array2[j];
 					j++;
+					display.updateDisplay();
 				}
 				k++;
 			}
 			while(i <= middle) {
 				array[k] = array2[i];
+				k++;
 				i++;
+				display.updateDisplay();
  			}
-			k++;
-			display.updateDisplay();
 		}
 			//3. Create an integer called middle and set it 
 			//   equal to the half way point between low and high
