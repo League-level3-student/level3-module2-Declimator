@@ -15,12 +15,20 @@ public class _02_InterpolationSearch {
         //2. create two integers called start and end.
 		//   initialize them to 0 and the length of the array minus one
 		//   respectively
-      
+      int start = 0;
+      int end = array.length-1;
         //3. Make a while loop that runs while the following conditions are true:
         //   start is less than or equal to end
         //   value is greater than or equal to the array element at start
         //   value is less than or equal to the array element at end
-
+      while(start <= end && value >= start && value <= array[end]) {
+    	  if(start == end) {
+    		  if(array[start] == value) {
+    			  return start;
+    		  }
+    		  return -1;
+    	  }
+      }
 		//4. If start is equal to end,
 		//     then check if the array element at start is equal to the value
 		//     and return start if it is, otherwise return -1.
@@ -39,6 +47,6 @@ public class _02_InterpolationSearch {
             //8. otherwise, set end equal to position minus one
           
         //9. Return -1 because the value was not found
-        return 0;
+        return -1;
     }
 }
